@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.sites-runtime/
+
+# 大型本地仿真数据与训练产物不默认提交到 GitHub。
+data/
+outputs/
+*.pt
+!web/model.onnx
+
