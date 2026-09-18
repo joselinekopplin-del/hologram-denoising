@@ -28,3 +28,21 @@ function saveOutput() { if (!state.output) { alert('请先执行去噪。'); ret
 
 $('inputFile').addEventListener('change', (e) => e.target.files[0] && loadInput(e.target.files[0])); $('referenceFile').addEventListener('change', (e) => e.target.files[0] && loadReference(e.target.files[0])); $('runBtn').addEventListener('click', runInference); $('saveBtn')?.addEventListener('click', saveOutput); $('sampleBtn').addEventListener('click', async () => { const image = new Image(); image.onload = () => loadInput(image, '仿真带噪样本'); image.src = 'assets/sample_noisy.png'; const clean = new Image(); clean.onload = () => loadReference(clean); clean.src = 'assets/sample_clean.png'; });
 document.addEventListener('dragover', (e) => e.preventDefault()); document.addEventListener('drop', (e) => { e.preventDefault(); const file = e.dataTransfer.files[0]; if (file && file.type.startsWith('image/')) loadInput(file); });
+
+// Apple 风格的滚动出现和导航栏状态：不影响推理逻辑，并尊重 reduced-motion 设置。
+function setupMotion() {
+  const topbar = document.querySelector('.topbar');
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries, instance) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('reveal-visible'); instance.unobserve(entry.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach((element) => observer.observe(element));
+  } else {
+    reveals.forEach((element) => element.classList.add('reveal-visible'));
+  }
+  const updateHeader = () => topbar?.classList.toggle('scrolled', window.scrollY > 12);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+}
+setupMotion();
