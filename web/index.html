@@ -14,14 +14,17 @@
   <main class="shell">
     <header class="topbar">
       <div class="brand"><span class="brand-mark">H</span><div><div class="brand-title">HoloDenoise</div><div class="brand-sub">全息通信重建图 · 轻量 U-Net 去噪</div></div></div>
+      <nav class="site-nav" aria-label="页面导航"><a class="active" href="#workspace">实验台</a><a href="#metrics">评价指标</a><a href="https://github.com/joselinekopplin-del/hologram-denoising" target="_blank" rel="noreferrer">项目文档</a></nav>
       <div class="top-meta"><span class="model-chip"><i></i> ONNX / Lightweight U-Net</span><span class="en">1.93M params</span></div>
     </header>
 
-    <section class="workspace">
-      <div class="work-head">
-        <div><p class="eyebrow en">RECONSTRUCTION LAB / 01</p><h1>重建图去噪实验台</h1><p class="lead">在浏览器中运行轻量 U-Net，观察带噪重建图到去噪结果的变化。</p></div>
-        <div class="status-box"><span class="status-dot" id="statusDot"></span><div><strong id="statusTitle">模型待加载</strong><small id="statusText">首次点击去噪时加载浏览器模型</small></div></div>
+    <section class="workspace" id="workspace">
+      <div class="hero-head">
+        <div class="hero-copy"><p class="eyebrow en">RECONSTRUCTION LAB / 01</p><h1>让重建图<br /><em>回到清晰。</em></h1><p class="lead">在浏览器中运行轻量 U-Net，让带噪重建图恢复更稳定的结构与细节。</p><div class="hero-stats"><span><b>1.93M</b><small>模型参数</small></span><span><b>256²</b><small>基础输入尺寸</small></span><span><b>Local</b><small>图像不离开浏览器</small></span></div></div>
+        <div class="hero-visual" aria-label="从带噪信号到清晰信号的示意图"><div class="signal-top"><span class="en">NOISY SIGNAL</span><span class="en">DENOISED SIGNAL</span></div><svg viewBox="0 0 520 250" role="img" aria-label="信号恢复示意图"><defs><linearGradient id="waveFade" x1="0" x2="1"><stop offset="0" stop-color="#0071e3" stop-opacity=".12"/><stop offset=".5" stop-color="#0071e3"/><stop offset="1" stop-color="#34c759"/></linearGradient></defs><path d="M16 125 C40 48, 61 195, 84 115 S126 68, 148 139 S188 184, 213 112 S252 57, 273 131 S312 170, 334 114 S370 88, 392 125 S431 155, 454 118 S489 99, 505 123" fill="none" stroke="#b9c7d7" stroke-width="2" stroke-dasharray="5 7"/><path d="M16 154 C52 131, 67 83, 97 92 S141 169, 174 151 S218 73, 250 91 S298 160, 330 146 S373 85, 403 103 S458 156, 505 126" fill="none" stroke="url(#waveFade)" stroke-width="5" stroke-linecap="round"/><circle cx="250" cy="91" r="7" fill="#fff" stroke="#0071e3" stroke-width="3"/><circle cx="403" cy="103" r="7" fill="#fff" stroke="#34c759" stroke-width="3"/></svg><div class="signal-foot"><span>输入噪声</span><span class="arrow-line">→</span><span>结构恢复</span></div></div>
       </div>
+
+      <div class="section-kicker"><span class="eyebrow en">TRY IT YOURSELF</span><div class="status-box"><span class="status-dot" id="statusDot"></span><div><strong id="statusTitle">模型待加载</strong><small id="statusText">首次点击去噪时加载浏览器模型</small></div></div></div>
 
       <div class="control-row">
         <label class="upload-control"><input id="inputFile" type="file" accept="image/*" /><span class="icon">＋</span><span><b>打开带噪图</b><small>PNG / JPG / TIFF</small></span></label>
@@ -37,7 +40,7 @@
         <article class="image-card reference-card"><div class="card-head"><span class="step-no">03</span><div><h2>Clean / 参考图</h2><p>监督学习标签</p></div></div><div class="image-stage" id="referenceStage"><div class="empty-state"><span class="empty-icon">⌁</span><span>上传参考图以计算指标</span></div></div><div class="card-foot" id="referenceInfo">可选，不影响推理</div></article>
       </section>
 
-      <section class="metrics-row">
+      <section class="metrics-row" id="metrics">
         <div class="metric-card"><span class="metric-label en">PSNR / BEFORE</span><strong id="psnrBefore">—</strong><small>dB</small></div>
         <div class="metric-card accent"><span class="metric-label en">PSNR / AFTER</span><strong id="psnrAfter">—</strong><small>dB</small></div>
         <div class="metric-card"><span class="metric-label en">SSIM / BEFORE</span><strong id="ssimBefore">—</strong><small>结构相似度</small></div>
