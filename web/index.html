@@ -13,9 +13,9 @@
 <body>
   <main class="shell">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">全</span><div><div class="brand-title">HoloDenoise</div><div class="brand-sub">全息通信重建图 · 轻量 U-Net 去噪</div></div></div>
+      <div class="brand"><span class="brand-mark">全</span><div><div class="brand-title en">HoloDenoise</div><div class="brand-sub">全息通信重建图 · 轻量 U-Net 去噪</div></div></div>
       <nav class="site-nav" aria-label="页面导航"><a class="active" href="#workspace">实验台</a><a href="#metrics">评价指标</a><a href="https://github.com/joselinekopplin-del/hologram-denoising" target="_blank" rel="noreferrer">项目文档</a></nav>
-      <div class="top-meta"><span class="model-chip"><i></i> ONNX / Lightweight U-Net</span><span class="en">1.93M params</span></div>
+      <div class="top-meta"><span class="model-chip"><i></i> <span class="en">ONNX / Lightweight U-Net</span></span><span class="en">1.93M params</span></div>
     </header>
 
     <section class="workspace" id="workspace">
@@ -29,15 +29,15 @@
       <div class="control-row reveal">
         <label class="upload-control"><input id="inputFile" type="file" accept="image/*" /><span class="icon">＋</span><span><b>打开带噪图</b><small>PNG / JPG / TIFF</small></span></label>
         <button class="button secondary" id="sampleBtn">载入仿真样本</button>
-        <label class="reference-control"><input id="referenceFile" type="file" accept="image/*" /><span>可选：上传 clean 参考图</span></label>
+        <label class="reference-control"><input id="referenceFile" type="file" accept="image/*" /><span>可选：上传 <span class="en">clean</span> 参考图</span></label>
         <button class="button primary" id="runBtn">开始去噪 <span class="arrow">↗</span></button>
         <button class="button secondary" id="saveBtn">保存结果</button>
       </div>
 
       <section class="image-grid">
-        <article class="image-card input-card reveal"><div class="card-head"><span class="step-no">01</span><div><h2>Noisy / 输入图</h2><p>带噪重建图</p></div></div><div class="image-stage" id="inputStage"><div class="empty-state"><span class="empty-icon">◌</span><span>拖入一张图片，或点击上方按钮</span></div></div><div class="card-foot" id="inputInfo">尚未选择文件</div></article>
-        <article class="image-card result-card reveal"><div class="card-head"><span class="step-no active">02</span><div><h2>Denoised / 去噪结果</h2><p>Lightweight U-Net 输出</p></div><span class="result-badge">模型输出</span></div><div class="image-stage" id="outputStage"><div class="empty-state"><span class="empty-icon">✦</span><span>运行推理后显示结果</span></div></div><div class="card-foot" id="outputInfo">等待推理</div></article>
-        <article class="image-card reference-card reveal"><div class="card-head"><span class="step-no">03</span><div><h2>Clean / 参考图</h2><p>监督学习标签</p></div></div><div class="image-stage" id="referenceStage"><div class="empty-state"><span class="empty-icon">⌁</span><span>上传参考图以计算指标</span></div></div><div class="card-foot" id="referenceInfo">可选，不影响推理</div></article>
+        <article class="image-card input-card reveal"><div class="card-head"><span class="step-no">01</span><div><h2><span class="en">Noisy /</span> 输入图</h2><p>带噪重建图</p></div></div><div class="image-stage" id="inputStage"><div class="empty-state"><span class="empty-icon">◌</span><span>拖入一张图片，或点击上方按钮</span></div></div><div class="card-foot" id="inputInfo">尚未选择文件</div></article>
+        <article class="image-card result-card reveal"><div class="card-head"><span class="step-no active">02</span><div><h2><span class="en">Denoised /</span> 去噪结果</h2><p><span class="en">Lightweight U-Net</span> 输出</p></div><span class="result-badge">模型输出</span></div><div class="image-stage" id="outputStage"><div class="empty-state"><span class="empty-icon">✦</span><span>运行推理后显示结果</span></div></div><div class="card-foot" id="outputInfo">等待推理</div></article>
+        <article class="image-card reference-card reveal"><div class="card-head"><span class="step-no">03</span><div><h2><span class="en">Clean /</span> 参考图</h2><p>监督学习标签</p></div></div><div class="image-stage" id="referenceStage"><div class="empty-state"><span class="empty-icon">⌁</span><span>上传参考图以计算指标</span></div></div><div class="card-foot" id="referenceInfo">可选，不影响推理</div></article>
       </section>
 
       <section class="metrics-row reveal" id="metrics">
@@ -50,7 +50,7 @@
 
       <section class="formula-panel reveal"><div><span class="eyebrow en">MEASUREMENT</span><h2>质量评价</h2></div><div class="formula-wrap"><math display="block" aria-label="BER equals the number of error bits divided by the total number of bits"><mrow><mi>BER</mi><mo>=</mo><mfrac><msub><mi>N</mi><mi>error</mi></msub><msub><mi>N</mi><mi>total</mi></msub></mfrac></mrow></math><span class="formula-caption">误码率衡量重建结果对通信信息的保真程度。</span></div><a class="github-link" href="https://github.com/joselinekopplin-del/hologram-denoising" target="_blank" rel="noreferrer">项目文档 ↗</a></section>
     </section>
-    <footer><span>HoloDenoise · Synthetic / Simulation Dataset</span><span class="en">Browser inference · No image leaves this page</span></footer>
+    <footer><span><span class="en">HoloDenoise · Synthetic / Simulation Dataset</span></span><span class="en">Browser inference · No image leaves this page</span></footer>
   </main>
   <script src="app.js?v=20260919-guofeng"></script>
 </body>
