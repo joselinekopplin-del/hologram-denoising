@@ -8,19 +8,19 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d2538'/%3E%3Cpath d='M13 17h8v12h22V17h8v30h-8V37H21v10h-8z' fill='%235ed8cf'/%3E%3Ccircle cx='45' cy='17' r='4' fill='%23f7c873'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/ort.min.js"></script>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260919-guofeng" />
 </head>
 <body>
   <main class="shell">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">H</span><div><div class="brand-title">HoloDenoise</div><div class="brand-sub">全息通信重建图 · 轻量 U-Net 去噪</div></div></div>
+      <div class="brand"><span class="brand-mark">全</span><div><div class="brand-title">HoloDenoise</div><div class="brand-sub">全息通信重建图 · 轻量 U-Net 去噪</div></div></div>
       <nav class="site-nav" aria-label="页面导航"><a class="active" href="#workspace">实验台</a><a href="#metrics">评价指标</a><a href="https://github.com/joselinekopplin-del/hologram-denoising" target="_blank" rel="noreferrer">项目文档</a></nav>
       <div class="top-meta"><span class="model-chip"><i></i> ONNX / Lightweight U-Net</span><span class="en">1.93M params</span></div>
     </header>
 
     <section class="workspace" id="workspace">
       <div class="hero-head">
-        <div class="hero-copy reveal"><p class="eyebrow en">RECONSTRUCTION LAB / 01</p><h1>让重建图<br /><em>回到清晰。</em></h1><p class="lead">在浏览器中运行轻量 U-Net，让带噪重建图恢复更稳定的结构与细节。</p><div class="hero-stats"><span><b>1.93M</b><small>模型参数</small></span><span><b>256²</b><small>基础输入尺寸</small></span><span><b>Local</b><small>图像不离开浏览器</small></span></div></div>
+        <div class="hero-copy reveal"><p class="eyebrow en">RECONSTRUCTION LAB / 01</p><div class="seal-caption">以光为墨 · 以算为笔</div><h1>让重建图<br /><em>澄明如初。</em></h1><p class="lead">在浏览器中运行轻量 U-Net，让带噪重建图恢复更稳定的结构与细节。</p><div class="hero-stats"><span><b>1.93M</b><small>模型参数</small></span><span><b>256²</b><small>基础输入尺寸</small></span><span><b>Local</b><small>图像不离开浏览器</small></span></div></div>
         <div class="hero-visual reveal" aria-label="从带噪信号到清晰信号的示意图"><div class="signal-top"><span class="en">NOISY SIGNAL</span><span class="en">DENOISED SIGNAL</span></div><svg viewBox="0 0 520 250" role="img" aria-label="信号恢复示意图"><defs><linearGradient id="waveFade" x1="0" x2="1"><stop offset="0" stop-color="#0071e3" stop-opacity=".12"/><stop offset=".5" stop-color="#0071e3"/><stop offset="1" stop-color="#34c759"/></linearGradient></defs><path class="signal-noise" d="M16 125 C40 48, 61 195, 84 115 S126 68, 148 139 S188 184, 213 112 S252 57, 273 131 S312 170, 334 114 S370 88, 392 125 S431 155, 454 118 S489 99, 505 123" fill="none" stroke="#b9c7d7" stroke-width="2" stroke-dasharray="5 7"/><path class="signal-clean" d="M16 154 C52 131, 67 83, 97 92 S141 169, 174 151 S218 73, 250 91 S298 160, 330 146 S373 85, 403 103 S458 156, 505 126" fill="none" stroke="url(#waveFade)" stroke-width="5" stroke-linecap="round"/><circle class="signal-point" cx="250" cy="91" r="7" fill="#fff" stroke="#0071e3" stroke-width="3"/><circle class="signal-point" cx="403" cy="103" r="7" fill="#fff" stroke="#34c759" stroke-width="3"/></svg><div class="signal-foot"><span>输入噪声</span><span class="arrow-line">→</span><span>结构恢复</span></div></div>
       </div>
 
@@ -48,10 +48,10 @@
         <div class="metric-note"><span class="note-mark">i</span><p>PSNR 越高、SSIM 越接近 1，表示重建质量通常越好。没有 clean 参考图时，指标保持为空。</p></div>
       </section>
 
-      <section class="formula-panel reveal"><div><span class="eyebrow en">MEASUREMENT</span><h2>质量评价</h2></div><div class="formula-wrap"><math display="block"><mrow><mi>BER</mi><mo>=</mo><mfrac><mtext>错误 bit 数</mtext><mtext>总 bit 数</mtext></mfrac></mrow></math><span class="formula-caption">未来可将去噪图阈值化后接入通信 BER 分析。</span></div><a class="github-link" href="https://github.com/joselinekopplin-del/hologram-denoising" target="_blank" rel="noreferrer">项目文档 ↗</a></section>
+      <section class="formula-panel reveal"><div><span class="eyebrow en">MEASUREMENT</span><h2>质量评价</h2></div><div class="formula-wrap"><math display="block" aria-label="BER equals the number of error bits divided by the total number of bits"><mrow><mi>BER</mi><mo>=</mo><mfrac><msub><mi>N</mi><mi>error</mi></msub><msub><mi>N</mi><mi>total</mi></msub></mfrac></mrow></math><span class="formula-caption">误码率衡量重建结果对通信信息的保真程度。</span></div><a class="github-link" href="https://github.com/joselinekopplin-del/hologram-denoising" target="_blank" rel="noreferrer">项目文档 ↗</a></section>
     </section>
     <footer><span>HoloDenoise · Synthetic / Simulation Dataset</span><span class="en">Browser inference · No image leaves this page</span></footer>
   </main>
-  <script src="app.js"></script>
+  <script src="app.js?v=20260919-guofeng"></script>
 </body>
 </html>
